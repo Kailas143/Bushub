@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+        <div class="row">
+            <div class="col-sm-6 mx-auto" style="margin-top: 70px">
+                <form action="{% url 'signout' %}" method="post">
+                    {% csrf_token %}
+                    {{user}} login succesfully !!!!!!!
+
+
+                    <div class="pull-right">
+                        <a href="{% url 'booking:booking_list' %}">
+                        <button type="Submit" class="btn btn-success float-right">Book ticket</button>
+                    </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

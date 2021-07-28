@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Available Buses</h2>
+<table>
+    <thead style="background-color: darkgreen; color: black">
+        <td>ID</td>
+        <td>Name</td>
+        <td>Source</td>
+        <td>Destination</td>
+        <td>Total Seats</td>
+        <td>Available Seats</td>
+        <td>Price</td>
+        <td>Date</td>
+        <td>Time</td>
+    </thead>
+    {% for bus in bus_list %}
+    <tr>
+    <td>{{bus.id}}</td>
+    <td>{{bus.bus_name}}</td>
+    <td>{{bus.src}}</td>
+    <td>{{bus.dest}}</td>
+    <td>{{bus.nos}}</td>
+    <td>{{bus.rems}}</td>
+    <td>{{bus.price}}</td>
+    <td>{{bus.date}}</td>
+    <td>{{bus.time}}</td>
+</tr>
+{% endfor %}
+
+</table>
+<form action="{% url 'booking:booking_list' %}" method="POST">
+    {% csrf_token %}
+    <div class="col-auto">
+            <label for="example-email-input" class="col-2 col-form-label">Bus ID</label>
+            <div class="col-5">
+                <input name='bus_id' class="form-control" type="number" >
+            </div>
+    </div>
+    <div class="col-auto">
+            <label for="example-email-input" class="col-2 col-form-label">Number of seats</label>
+            <div class="col-5">
+                <input name='no_seats' class="form-control" type="number">
+            </div>
+    </div>
+    <br>
+    <br>
+    <div class="pull-right">
+        <button type="submit" class="btn btn-success float-left">Book bus</button>
+    </div>
+    {{error}}
+
+</form>
+
+{% endblock %}
