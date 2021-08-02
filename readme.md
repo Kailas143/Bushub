@@ -9,8 +9,11 @@ This site will help to
    Ticket Booking 
    Booking List 
    Cancellation
+   Registration
+   Signin
+   Signout
  ```
- Some basic Git commands are:
+
 
 **Running the Project**
 
@@ -28,8 +31,7 @@ That will create a new folder env in your project directory Activate Environment
    ```
    source env/bin/active
   ```
-   
-Then just run the server using
+Then change folder to your project directory and then just run the server 
  ```
  python manage.py runserver
  ```
